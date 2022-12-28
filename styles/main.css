@@ -1,0 +1,176 @@
+/* Webfonts */
+@import "_fonts.css";
+
+/* Tailwind base/components */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* Custom Style Imports */
+@import "_typography.css";
+@import "_locomotive.css";
+
+/* Tailwind Utilities */
+@import "tailwindcss/utilities";
+
+/* Simple defaults */
+body {
+  @apply font-sans antialiased text-black bg-white;
+}
+
+h1 {
+  @apply font-sans mb-3;
+}
+
+h2 {
+  @apply font-sans tracking-tight;
+}
+
+h3 {
+  @apply text-4xl font-futuraLight tracking-tight;
+}
+
+h4 {
+  @apply text-2xl;
+}
+
+p,
+a {
+  @apply font-futuraLight no-underline;
+}
+
+li {
+  @apply text-xl xl:text-2xl;
+}
+
+p {
+  @apply text-lg sm:text-xl  xl:text-2xl;
+}
+
+@layer components {
+  /* Hero Headline*/
+  .hero-container {
+    max-width: 1000px;
+  }
+
+  /* Scroll Indicator */
+  .arrow {
+    top: 85%;
+  }
+
+  /* Naviagtion underline */
+  .shadow {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    border-radius: 4px;
+    z-index: -1;
+    height: 10%;
+    top: 29px;
+  }
+
+  /* Burger */
+  .bar {
+    height: 1px;
+    background: "black";
+  }
+
+  /* Overlay Menu Item*/
+  .menu-overlay-item {
+    cursor: pointer;
+    transition: all 0.4s ease-out;
+  }
+
+  .menu-overlay-item:hover {
+    /* temporary fix: !important */
+    transform: translateX(15px) !important;
+  }
+
+  .line {
+    background: black;
+    width: 50%;
+    height: 0.5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-font-space {
+    word-spacing: -20px;
+  }
+
+  .hero-font-space-small {
+    word-spacing: -12px;
+  }
+
+  .hero-font-size {
+    @media (max-width: 425px) {
+      font-size: 7vw;
+    }
+  }
+
+  .hero-404-font-size {
+    @media (max-width: 425px) {
+      font-size: 6vw;
+    }
+  }
+
+  .arrow {
+    opacity: 0%;
+    transition: all;
+    transition-duration: 100ms;
+  }
+
+  .project:hover > .arrow {
+    opacity: 100%;
+  }
+
+  .image-container {
+    width: 100%;
+  }
+
+  .image-container > div {
+    position: unset !important;
+  }
+
+  .image-container > span > span {
+    display: none !important;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
+
+  .project-image-card > span > span {
+    display: none !important;
+  }
+
+  .project-image-card {
+    animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

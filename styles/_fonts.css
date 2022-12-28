@@ -1,0 +1,158 @@
+/*****
+******
+Google Fonts
+******
+******
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/*****
+******
+Neue Hass Grotesk
+******
+******
+*/
+@font-face {
+  font-family: "Neue-Black";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Black.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Neue-Regular";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Reg.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Reg.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Neue-Light";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Light.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Neue-Bold";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Bold.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Neue-Medium";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Medium.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Medium.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Neue-Thin";
+  src: url("../public/fonts/Neue/NeueHaasGroteskDisplay-Thin.woff2")
+      format("woff2"),
+    url("../public/fonts/Neue/NeueHaasGroteskDisplay-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: block;
+}
+
+/*****
+******
+FUTURA
+******
+******
+*/
+
+@font-face {
+  font-family: "Futura-Light";
+  src: url("../public/fonts/Futura/FuturaPT-Light.woff2") format("woff2"),
+    url("../public/fonts/Futura/FuturaPT-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Futura";
+  src: url("../public/fonts/Futura/FuturaPT-Medium.woff2") format("woff2"),
+    url("../public/fonts/Futura/FuturaPT-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+/*****
+******
+FOUNDERS
+******
+******
+*/
+
+@font-face {
+  font-family: "Founders";
+  src: url("../public/fonts/FoundersGrotesk/WOFF/FoundersGrotesk-Regular.woff2")
+      format("woff2"),
+    url("../public/fonts/FoundersGrotesk/WOFF/FoundersGrotesk-Regular.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "FoundersLight";
+  src: url("../public/fonts/FoundersGrotesk/WOFF/FoundersGrotesk-Light.woff2")
+      format("woff2"),
+    url("../public/fonts/FoundersGrotesk/WOFF/FoundersGrotesk-Light.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+/*****
+******
+IBM
+******
+******
+*/
+
+@font-face {
+  font-family: "IBM";
+  src: url("../public/fonts/IBM Plex Mono/woff2/IBMPlexMono-Light.woff2")
+      format("woff2"),
+    url("../public/fonts/IBM Plex Mono/woff/IBMPlexMono-Light.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "IBMLight";
+  src: url("../public/fonts/IBM Plex Mono/woff2/IBMPlexMono-ExtraLight.woff2")
+      format("woff2"),
+    url("../public/fonts/IBM Plex Mono/woff/IBMPlexMono-ExtraLight.woff")
+      format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
