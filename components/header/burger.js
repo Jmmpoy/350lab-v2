@@ -4,7 +4,7 @@ export default function Burger({ open, setOpen }) {
   return (
     <button
       className={`menu-button md:hidden z-10 relative w-8 +  ${
-        open ? "text-white" : "text-black"
+        open ? "text-offWhite" : "text-black"
       }`}
       onClick={setOpen}>
       <span

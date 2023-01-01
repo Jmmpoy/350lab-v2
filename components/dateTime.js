@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { delayedFade } from "@/helpers/transitions";
 
 function DateTime() {
   let time = new Date().toLocaleString();
@@ -11,14 +13,16 @@ function DateTime() {
     };
   });
   return (
-    <div className="DateWrapper self-center">
-      <li className="list-none uppercase text-base font-founders  ">
+    <motion.div
+      variants={delayedFade}
+      initial="initial"
+      animate="enter"
+      exit="exit"
+      className="DateWrapper self-center">
+      <motion.li className="list-none uppercase text-base font-founders  ">
         {date.toLocaleTimeString()}
-      </li>
-      {/* <li className="uppercase text-sm font-founders text-gray">
-        {`© ${date.getFullYear()}`}
-      </li> */}
-    </div>
+      </motion.li>
+    </motion.div>
   );
 }
 

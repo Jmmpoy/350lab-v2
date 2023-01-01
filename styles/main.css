@@ -14,7 +14,7 @@
 
 /* Simple defaults */
 body {
-  @apply font-sans antialiased text-black bg-white;
+  @apply font-sans antialiased text-offWhite bg-black;
 }
 
 h1 {
@@ -106,6 +106,12 @@ p {
   }
 
   .hero-font-size {
+    @media (max-width: 425px) {
+      font-size: 7vw;
+    }
+  }
+
+  .about-font-size {
     @media (max-width: 425px) {
       font-size: 7vw;
     }

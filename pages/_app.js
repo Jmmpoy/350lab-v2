@@ -12,11 +12,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-
-      <AnimatePresence>
-        <Header />
-        <Component {...pageProps} key={router.asPath} />
-      </AnimatePresence>
+      <Header />
+      <Component {...pageProps} key={router.asPath} />
+      <Footer />
     </>
   );
 }

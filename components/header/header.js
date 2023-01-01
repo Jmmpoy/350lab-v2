@@ -9,16 +9,15 @@ import { useState, useEffect } from "react";
 import {
   motion,
   AnimateSharedLayout,
-  AnimatePresence,
   useAnimation,
   useCycle,
 } from "framer-motion";
-import { delayedFade } from "@/helpers/transitions";
+import { fade, delayedFade } from "@/helpers/transitions";
 import DateTime from "../dateTime";
 
 export default function Header() {
   const [open, setOpen] = useCycle(false, true);
-  const menuItems = [{ route: "Infos", url: "/about" }];
+  const menuItems = [{ route: "About", url: "/about" }];
 
   useEffect(() => {
     if (open) {
@@ -50,14 +49,23 @@ export default function Header() {
 
   return (
     <header
-      className="bg-white fixed  w-full  flex flex-col justify-center pt-2 z-10"
+      className=" w-full bg-black fixed flex flex-col justify-center z-20 h-[10vh]"
       data-scroll
       data-scroll-sticky
       data-scroll-target="#scroll-container">
       <Container extraClasses="Header-Section ">
-        <motion.div className="flex flex-col  h-full sm:justify-between   sm:flex-row">
+        <motion.div className="flex flex-row  h-full justify-between">
           <AnimateSharedLayout>
-            <Navigation items={menuItems} />
+            <Link href="/" className="relative">
+              <motion.a
+                variants={fade}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                className="mr-4 text-xl  uppercase self-center font-neueBold cursor-pointer">
+                350lab©
+              </motion.a>
+            </Link>
           </AnimateSharedLayout>
 
           <motion.ul
@@ -65,8 +73,17 @@ export default function Header() {
             initial="initial"
             animate="enter"
             exit="exit"
-            className=" hidden  sm:block sm:basis-1/2">
-            <DateTime />
+            className="sm:basis-1/2">
+            <Navigation items={menuItems} />
+          </motion.ul>
+
+          <motion.ul
+            variants={delayedFade}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            className=" block sm:hidden sm:basis-1/2">
+            <Burger />
           </motion.ul>
         </motion.div>
       </Container>

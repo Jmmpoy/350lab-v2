@@ -5,7 +5,16 @@ import { useAnimation, motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { delayedFade } from "@/helpers/transitions";
 
-export default function content({ data }) {
+export default function content() {
+  const services = [
+    { id: 1, name: "Creative Direction" },
+    { id: 2, name: "Digital Design" },
+    { id: 3, name: "Brand Identity" },
+    { id: 5, name: "Development" },
+  ];
+
+  const projects = [{ id: 1, name: "Coming Soon" }];
+
   function FadeInWhenVisible({ children }) {
     const controls = useAnimation();
     const [ref, inView] = useInView({ margin: "70px" });
@@ -18,7 +27,7 @@ export default function content({ data }) {
 
     return (
       <motion.div
-        className={` project border-t-[0.2px] border-gray  h-24 md:h-32 flex justify-between items-center text-sm uppercase relative text-black hover:text-gray  transition duration-700`}
+        className={` project border-t-[2px] border-offWhite border-opacity-5 h-32 md:h-48 flex justify-between items-center text-sm uppercase relative text-offWhite hover:text-brown  transition duration-700`}
         ref={ref}
         animate={controls}
         initial="hidden"
@@ -35,28 +44,24 @@ export default function content({ data }) {
   }
 
   return (
-    <Container extraClasses="Content-Container   py-12   lg:py-32">
+    <Container extraClasses="Content-Container py-12 lg:py-32">
       <motion.p
         variants={delayedFade}
         initial="initial"
         animate="enter"
         exit="exit"
-        class="text-[16px] text-gray font-foundersLight ">
-        Projets
+        className="text-base uppercase text-offWhite font-founders ">
+        Services
       </motion.p>
       <motion.div className="h-full mt-4">
-        {data.map((project, index) => {
+        {services.map((service, index) => {
           return (
-            <FadeInWhenVisible key={`project-${project.id}`}>
-              <Link
-                href={`/projects/[id]`}
-                as={`/projects/${project.id}`}
-                passHref>
-                <a
-                  className={`  text-5xl xsm:text-6xl sm:text-7xl md:text-8xl font-foundersLight tracking-tight  `}>
-                  {project.name}
-                </a>
-              </Link>
+            <FadeInWhenVisible key={`project-${service.id}`}>
+              <a
+                className={`  text-2xl  sm:text-4xl md:text-6xl lg:text-8xl font-neueBold tracking-tight   `}>
+                {service.name}
+              </a>
+
               <div className="arrow">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
