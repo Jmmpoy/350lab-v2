@@ -10,9 +10,7 @@ export default function Hero({ message }) {
     { id: 2, text: "solutions to grow" },
     { id: 3, text: "your businesses" },
   ];
-  // Holographik® is a creative studio specialized in design and motion.
-  // Our work mainly covers strategy, art direction,
-  //   web and mobile solutions, 3d and motion.
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -36,7 +34,7 @@ export default function Hero({ message }) {
 
   return (
     <Container extraClasses="Hero-Container relative ">
-      <main className=" h-[65vh] flex flex-col justify-center">
+      <motion.main className=" h-[65vh] flex flex-col justify-center">
         <motion.div>
           {message == null ? (
             <motion.ul
@@ -45,11 +43,11 @@ export default function Hero({ message }) {
               animate="show"
               exit="exit">
               {content.map((item, index) => {
-                const isGray = item.id === 3 ? "text-black" : "text-black";
+                const isGray = item.id === 3 ? "text-brown" : "text-offWhite";
                 const isSecondLine = item.id === 2;
                 const currentStatus = item.id === 4;
                 return (
-                  <div key={index} className="overflow-hidden">
+                  <motion.div key={index} className="overflow-hidden">
                     {currentStatus ? (
                       <motion.p
                         initial={{ y: `${70 * item.id}` }}
@@ -93,11 +91,11 @@ export default function Hero({ message }) {
                           },
                         }}
                         key={item.id}
-                        className={` ${isGray} about-font-size  mb-0 font-neueBold uppercase   xsm:text-3xl sm:mb-3   sm:text-6xl`}>
+                        className={` ${isGray}    about-font-size text-xl  mb-0 font-neueBold uppercase    xsm:text-3xl sm:mb-3   sm:text-5xl md:text-6xl`}>
                         {item.text}
                       </motion.li>
                     )}
-                  </div>
+                  </motion.div>
                 );
               })}
             </motion.ul>
@@ -108,19 +106,19 @@ export default function Hero({ message }) {
               animate="enter"
               exit="exit">
               <motion.p
-                className={`hero-font-size  mb-0 font-neueLight uppercase   xsm:text-3xl sm:mb-3   sm:text-5xl`}>
-                Cette page n'existe pas.
+                className={`hero-font-size  mb-0 font-neueBold text-brown uppercase   xsm:text-3xl sm:mb-3   sm:text-5xl`}>
+                This page does not exist.
               </motion.p>
               <Link href="/">
-                <a
-                  className={` hero-font-size mb-0 font-neueLight uppercase xsm:text-3xl sm:mb-3 sm:text-5xl`}>
-                  Cliquez ici.
-                </a>
+                <motion.a
+                  className={` hero-font-size mb-0 font-neueBold text-brown uppercase xsm:text-3xl sm:mb-3 sm:text-5xl`}>
+                  Clic here.
+                </motion.a>
               </Link>
             </motion.div>
           )}
         </motion.div>
-      </main>
+      </motion.main>
     </Container>
   );
 }

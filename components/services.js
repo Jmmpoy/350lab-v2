@@ -13,7 +13,7 @@ export default function Services() {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="w-12 h-12 mb-4 text-black"
+          class="w-12 h-12 mb-4 text-offWhite"
           aria-hidden="true">
           <path
             strokeLinecap="round"
@@ -40,7 +40,7 @@ export default function Services() {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="w-12 h-12 mb-4 text-black"
+          class="w-12 h-12 mb-4 text-offWhite"
           aria-hidden="true">
           <path
             strokeLinecap="round"
@@ -67,7 +67,7 @@ export default function Services() {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          class="w-12 h-12 mb-4 text-black"
+          class="w-12 h-12 mb-4 text-offWhite"
           aria-hidden="true">
           <path
             strokeLinecap="round"
