@@ -11,14 +11,14 @@ function DateTime() {
     };
   });
   return (
-    <>
-      <li className="uppercase text-sm font-founders  ">
+    <div className="DateWrapper self-center">
+      <li className="list-none uppercase text-base font-founders  ">
         {date.toLocaleTimeString()}
       </li>
-      <li className="uppercase text-sm font-founders text-gray">
+      {/* <li className="uppercase text-sm font-founders text-gray">
         {`© ${date.getFullYear()}`}
-      </li>
-    </>
+      </li> */}
+    </div>
   );
 }
 

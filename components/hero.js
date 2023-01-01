@@ -5,19 +5,14 @@ import Link from "next/link";
 import { fade } from "@/helpers/transitions";
 
 export default function Hero({ message }) {
-  // const content = [
-  //   { id: 1, text: "Mpoy Jean-Marc" },
-  //   { id: 2, text: "— front end developer" },
-  //   { id: 3, text: "based in Nantes" },
-  //   { id: 4, text: "*Curently working at Ucaya" },
-  // ];
-
-  const frenchContent = [
-    { id: 1, text: "Mpoy Jean-Marc" },
-    { id: 2, text: "— développeur web" },
-    { id: 3, text: "basé à Nantes" },
-    { id: 4, text: "*Travaille actuellement chez Ucaya" },
+  const content = [
+    { id: 1, text: "We provide digital" },
+    { id: 2, text: "solutions to grow" },
+    { id: 3, text: "your businesses" },
   ];
+  // Holographik® is a creative studio specialized in design and motion.
+  // Our work mainly covers strategy, art direction,
+  //   web and mobile solutions, 3d and motion.
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -49,8 +44,8 @@ export default function Hero({ message }) {
               initial="hidden"
               animate="show"
               exit="exit">
-              {frenchContent.map((item, index) => {
-                const isGray = item.id === 3 ? "text-gray" : "text-black";
+              {content.map((item, index) => {
+                const isGray = item.id === 3 ? "text-black" : "text-black";
                 const isSecondLine = item.id === 2;
                 const currentStatus = item.id === 4;
                 return (
@@ -98,7 +93,7 @@ export default function Hero({ message }) {
                           },
                         }}
                         key={item.id}
-                        className={` ${isGray} hero-font-size  mb-0 font-neueLight uppercase   xsm:text-3xl sm:mb-3   sm:text-5xl`}>
+                        className={` ${isGray} about-font-size  mb-0 font-neueBold uppercase   xsm:text-3xl sm:mb-3   sm:text-6xl`}>
                         {item.text}
                       </motion.li>
                     )}
