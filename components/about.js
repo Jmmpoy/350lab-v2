@@ -51,7 +51,12 @@ export default function About() {
   return (
     <Container extraClasses="Content-Container relative h-[50vh] sm:h-[60vh] overflow-auto  md:overflow-hidden">
       <motion.div className="flex flex-col pt-16  h-full md:grid     md:grid-cols-2">
-        <motion.p className="mb-12 text-base uppercase text-offWhite font-founders ">
+        <motion.p
+          variants={delayedFade}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className="mb-12 text-base uppercase text-offWhite font-founders ">
           About Us
         </motion.p>
         <motion.div className="w-full md:col-start-2">
