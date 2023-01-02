@@ -38,11 +38,11 @@ export default function About() {
         animate={controls}
         initial="hidden"
         exit="exit"
-        transition={{ duration: 1.5, ease: "easeInOut" }}
+        transition={{ duration: 0.9, ease: "easeInOut" }}
         variants={{
-          hidden: { opacity: 0, y: 100 },
+          hidden: { opacity: 0, y: 50 },
           visible: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: 100 },
+          exit: { opacity: 0, y: 50 },
         }}>
         {children}
       </motion.div>
@@ -58,11 +58,6 @@ export default function About() {
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              // <motion.p
-              //   key={item.id}
-              //   className={`${isFirst} hero-font-size font-founders  max-w-[650px]  text-sm xsm:text-xl  md:text-2xl `}>
-              //   {item.text}
-              // </motion.p>
               <FadeInWhenVisible>
                 <motion.p
                   key={item.id}
