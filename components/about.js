@@ -49,7 +49,7 @@ export default function About() {
     );
   }
   return (
-    <Container extraClasses="Content-Container  h-[50vh] sm:h-[60vh] overflow-auto  md:overflow-hidden">
+    <Container extraClasses="Content-Container relative h-[50vh] sm:h-[60vh] overflow-auto  md:overflow-hidden">
       <motion.div className="flex flex-col pt-16  h-full md:grid     md:grid-cols-2">
         <motion.p className="mb-12 text-base uppercase text-offWhite font-founders ">
           About Us
@@ -69,6 +69,21 @@ export default function About() {
           })}
         </motion.div>
       </motion.div>
+      <div className="hero-arrow absolute bottom-[20px] left-10 rotate-[90deg]">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          class="w-5 h-5">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+          />
+        </svg>
+      </div>
     </Container>
   );
 }
