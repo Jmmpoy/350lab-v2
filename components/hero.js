@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Container from "@/components/container";
 import Link from "next/link";
-import { fade } from "@/helpers/transitions";
+import { fade, delayedFade } from "@/helpers/transitions";
 
 export default function Hero({ message }) {
   const content = [
@@ -119,7 +119,12 @@ export default function Hero({ message }) {
           )}
         </motion.div>
       </motion.main>
-      <div className="hero-arrow absolute bottom-[120px] right-10 rotate-[120deg]">
+      <motion.div
+        variants={delayedFade}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="hero-arrow absolute bottom-[120px] right-10 rotate-[120deg]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -133,7 +138,7 @@ export default function Hero({ message }) {
             d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
           />
         </svg>
-      </div>
+      </motion.div>
     </Container>
   );
 }
