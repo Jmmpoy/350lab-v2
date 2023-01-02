@@ -34,7 +34,7 @@ export default function Hero({ message }) {
 
   return (
     <Container extraClasses="Hero-Container relative ">
-      <motion.main className=" h-[65vh] flex flex-col justify-center">
+      <motion.main className=" h-[65vh] flex flex-col justify-center sm:h-[85vh]">
         <motion.div>
           {message == null ? (
             <motion.ul
