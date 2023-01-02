@@ -1,20 +1,11 @@
-import { useRef } from "react";
 import Layout from "@/components/layout";
-import Header from "@/components/header/header";
 import Hero from "@/components/hero";
-import Services from "@/components/services";
 import Content from "@/components/content";
-import About from "pages/about";
-import Footer from "@/components/footer";
-import Container from "@/components/container";
-import FancyLink from "@/components/fancyLink";
 import { fade } from "@/helpers/transitions";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 
 export default function Home() {
-  const containerRef = useRef(null);
-
   return (
     <Layout class="no-scrollbar">
       <NextSeo
