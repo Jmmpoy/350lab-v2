@@ -1,6 +1,7 @@
 import Layout from "@/components/layout";
 import Hero from "@/components/hero";
 import Content from "@/components/content";
+import About from "@/components/about";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 
@@ -14,8 +15,9 @@ export default function Home() {
               design."
       />
       <LazyMotion features={domAnimation}>
-        <m.div initial="initial" animate="enter" exit="exit">
+        <m.div key="home" initial="initial" animate="enter" exit="exit">
           <Hero />
+          <About />
           <Content />
         </m.div>
       </LazyMotion>

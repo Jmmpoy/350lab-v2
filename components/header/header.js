@@ -67,24 +67,6 @@ export default function Header() {
               </motion.a>
             </Link>
           </AnimateSharedLayout>
-
-          <motion.ul
-            variants={delayedFade}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            className="sm:basis-1/2">
-            <Navigation items={menuItems} />
-          </motion.ul>
-
-          <motion.ul
-            variants={delayedFade}
-            initial="initial"
-            animate="enter"
-            exit="exit"
-            className=" block sm:hidden sm:basis-1/2">
-            <Burger />
-          </motion.ul>
         </motion.div>
       </Container>
     </header>

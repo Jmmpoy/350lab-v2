@@ -52,6 +52,11 @@ p {
 }
 
 @layer components {
+
+  .fade-in{
+  animation: fade
+  }
+
   /* Hero Headline*/
   .hero-container {
     max-width: 1000px;
