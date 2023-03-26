@@ -47,7 +47,7 @@ export default function Contact() {
     );
   }
   return (
-    <Container extraClasses="Content-Container border-solid border-t-[2px] border-offWhite border-opacity-5 relative py-12 lg:pt-48 overflow-hidden">
+    <Container extraClasses="Content-Container relative py-12 lg:pt-48 overflow-hidden">
       <motion.div className="flex flex-col content-center h-full md:grid md:grid-cols-4">
         <motion.p
           variants={delayedFade}
