@@ -1,11 +1,15 @@
 import Layout from "@/components/layout";
 import Hero from "@/components/hero";
-import Content from "@/components/content";
 import About from "@/components/about";
 import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 import Container from "@/components/container";
-
+import Services from "@/components/services";
+import Separator from "@/components/separator";
+import TeamText from "@/components/teamText";
+import Team from "@/components/team";
+import Contact from '@/components/contact';
+import ScrollToTop from "@/components/ScrollToTop";
 export default function Home() {
   return (
     <Layout class="relative no-scrollbar">
@@ -19,7 +23,11 @@ export default function Home() {
         <m.div initial="initial" animate="enter" exit="exit">
           <Hero />
           <About />
-          <Content />
+          <Services />
+          <TeamText/>
+          <Team/>
+          <Contact/>
+          <ScrollToTop/>
         </m.div>
       </LazyMotion>
     </Layout>

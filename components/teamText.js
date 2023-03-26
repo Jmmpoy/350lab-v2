@@ -9,17 +9,15 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Arrow from "./arrow";
 
-export default function About() {
+export default function TeamText() {
   const content = [
     {
       id: 1,
-      text: "We're a creative studio with development and design expertise. We partner with brands by developing solutions through strategy and design.",
+      text: "We understand that ideas comes from everywhere and expect everyone to bring their own perspectives to the table.",
     },
-    {
-      id: 2,
-      text: "We believe a great presentation evokes interest and drives business results far better than any saying can.",
-    },
+    
   ];
 
   function FadeInWhenVisible({ children }) {
@@ -49,15 +47,15 @@ export default function About() {
     );
   }
   return (
-    <Container extraClasses="Content-Container relative  overflow-auto  md:overflow-hidden ">
-      <motion.div className="flex flex-col content-center py-16 h-full md:grid  md:grid-cols-4">
+    <Container extraClasses="Content-Container  pt-8 sm:pt-32 relative overflow-hidden">
+      <motion.div className="flex flex-col content-center h-full md:grid md:grid-cols-4">
         <motion.p
           variants={delayedFade}
           initial="initial"
           animate="enter"
           exit="exit"
-          className="text-xl uppercase text-offWhite font-founders mb-8 ">
-          About Us
+          className="mb-12 text-xl uppercase text-offWhite font-founders  underline-offset-4 ">
+          Meet Our Team
         </motion.p>
         <motion.div className="md:col-start-2 md:col-span-3 lg:col-span-2">
           {content.map((item, index) => {

@@ -177,6 +177,37 @@ p {
       opacity: 1;
     }
   }
+
+  arrowUp {
+  width: 2rem;
+  height: 2rem;
+}
+
+.scrollToTop-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 60px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  line-height: 48px;
+
+  background: #242424;
+  border: none;
+  border-radius: 5%;
+  color: white;
+  cursor: pointer;
+}
+
+.scrollToTop-btn:hover {
+  background: #242424;
+;
+}
+
 }
 
 @layer utilities {
