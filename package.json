@@ -1,14 +1,11 @@
 {
-  "name": "next-tailwind-motion",
-  "description": "A simple Next.js starter kit with TailwindCSS (JIT) and Framer Motion preconfigured",
-  "author": "Sam Goddard <hello@samgoddard.co.uk> (https://samgoddard.co.uk)",
+  "name": "350Lab",
+  "description": "350lab landing page",
+  "author": "350lab",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:samuelgoddard/next-tailwind-motion.git"
-  },
-  "bugs": {
-    "url": "https://github.com/samuelgoddard/next-tailwind-motion/issues"
+    "url": "git@github.com:Jmmpoy/350lab-v2.git"
   },
   "license": "ISC",
   "keywords": [
@@ -19,7 +16,7 @@
     "motion",
     "preact"
   ],
-  "homepage": "https://sg-next-tailwind-motion.vercel.app/",
+  "homepage": "https://www.350lab.com/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

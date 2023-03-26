@@ -9,17 +9,15 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import Arrow from "./arrow";
 
-export default function About() {
+export default function Contact() {
   const content = [
     {
       id: 1,
-      text: "We're a creative studio with development and design expertise. We partner with brands by developing solutions through strategy and design.",
+      text: "We're always interested to hear about new projects, so please feel free to reach out  below if you'd like to collaborate with us.",
     },
-    {
-      id: 2,
-      text: "We believe a great presentation evokes interest and drives business results far better than any saying can.",
-    },
+    
   ];
 
   function FadeInWhenVisible({ children }) {
@@ -49,15 +47,15 @@ export default function About() {
     );
   }
   return (
-    <Container extraClasses="Content-Container relative  overflow-auto  md:overflow-hidden ">
-      <motion.div className="flex flex-col content-center py-16 h-full md:grid  md:grid-cols-4">
+    <Container extraClasses="Content-Container border-solid border-t-[2px] border-offWhite border-opacity-5 relative py-12 lg:pt-48 overflow-hidden">
+      <motion.div className="flex flex-col content-center h-full md:grid md:grid-cols-4">
         <motion.p
           variants={delayedFade}
           initial="initial"
           animate="enter"
           exit="exit"
-          className="text-xl uppercase text-offWhite font-founders mb-8 ">
-          About Us
+          className="mb-12 text-xl uppercase text-offWhite font-founders  underline-offset-4 ">
+          Contact Us
         </motion.p>
         <motion.div className="md:col-start-2 md:col-span-3 lg:col-span-2">
           {content.map((item, index) => {
@@ -69,6 +67,10 @@ export default function About() {
                   className={`${isFirst} hero-font-size font-founders    text-2xl  sm:text-3xl  md:text-5xl `}>
                   {item.text}
                 </motion.h3>
+               <div className="flex">
+                <motion.a href="mailto:Didier.mumengi@gmail.com" className={`${isFirst} font-founders font-bold uppercase  text-sm xsm:text-xl  md:text-2xl `}>Email us</motion.a>
+                <Arrow size="w-8 w-8" style="self-center ml-4 rotate-[320deg]"/>
+               </div>
               </FadeInWhenVisible>
             );
           })}

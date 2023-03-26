@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
       <AnimatePresence>
         <Header />
         <Component {...pageProps} key={router.asPath} />
-        <Footer />
+        {/* <Footer /> */}
       </AnimatePresence>
     </>
   );
