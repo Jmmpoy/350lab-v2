@@ -69,7 +69,7 @@ export default function Contact() {
                 </motion.h3>
                <div className="flex">
                 <motion.a href="mailto:Didier.mumengi@gmail.com" className={`${isFirst} font-founders font-bold uppercase  text-sm xsm:text-xl  md:text-2xl `}>Email us</motion.a>
-                <Arrow size="w-8 w-8" style="self-center ml-4 rotate-[320deg]"/>
+                <Arrow size=" w-4 w-4 sm:w-8 w-8" style="self-center ml-4 rotate-[320deg]"/>
                </div>
               </FadeInWhenVisible>
             );
