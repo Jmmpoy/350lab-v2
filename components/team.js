@@ -12,22 +12,22 @@ export default function Team(){
     {
       id: 1,
       name: "Francisco Mambo",
-      position: "Co-founder & COO"
+      position: "Partner & COO"
     },
     {
       id: 2,
       name: "Olivier Mumengi",
-      position: "Co-founder & CEO"
+      position: "Partner & CEO"
     },
     {
       id: 3,
       name: "Jean-Marc Mpoy",
-      position: "Co-founder & CTO"
+      position: "Partner & CTO"
     },
     {
       id: 4,
-      name: "Junior Mumengi",
-      position: "Co-founder & CEO"
+      name: "Didier Jr Mumengi",
+      position: "Partner & CEO"
     },
   ];
 
