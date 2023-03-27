@@ -58,3 +58,50 @@ export const slideInLeft = {
     },
   },
 };
+
+
+//hero
+export const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 2,
+        staggerChildren: 0.9,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+
+  export const heroLineReveal = {
+    hidden: (i) => ({
+      y: 70 * i,
+      opacity: 0,
+    }),
+    visible: (i) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2 * i,
+        duration: 1,
+        ease: "easeInOut",
+      },
+    }),
+    exit: (i) => ({
+      y: 100,
+      opacity: 0,
+      transition: {
+        delay: 0.1 * i,
+        duration: 0.8,
+        ease: "easeInOut",
+      },
+    }),
+  };
