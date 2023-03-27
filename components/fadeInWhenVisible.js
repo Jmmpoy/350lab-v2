@@ -3,7 +3,7 @@ import { useAnimation, motion, Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 
-export default   function FadeInWhenVisible({ children }) {
+export default   function FadeInWhenVisible({ children,style }) {
     const controls = useAnimation();
     const [ref, inView] = useInView({ margin: "70px" });
     useEffect(() => {
@@ -12,9 +12,11 @@ export default   function FadeInWhenVisible({ children }) {
       }
     }, [controls, inView]);
 
+    const defaultStyle = "py-12  project border-t-[.5px] border-offWhite border-opacity-5  flex flex-col justify-between  text-sm uppercase relative text-offWhite hover:text-brown  transition-colors duration-500 ease-in-out";
+    const containerStyle = style != null ? style : defaultStyle;
     return (
       <motion.div
-        className={`py-12 project border-t-[.5px] border-offWhite border-opacity-5  flex flex-col justify-between  text-sm uppercase relative text-offWhite hover:text-brown  transition-colors duration-500 ease-in-out`}
+        className={containerStyle}
         ref={ref}
         animate={controls}
         initial="hidden"

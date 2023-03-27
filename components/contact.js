@@ -10,7 +10,7 @@ import { NextSeo } from "next-seo";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Arrow from "./arrow";
-
+import FadeInWhenVisible from "./fadeInWhenVisible";
 export default function Contact() {
   const content = [
     {
@@ -20,32 +20,6 @@ export default function Contact() {
     
   ];
 
-  function FadeInWhenVisible({ children }) {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({ margin: "70px" });
-
-    useEffect(() => {
-      if (inView) {
-        controls.start("visible");
-      }
-    }, [controls, inView]);
-
-    return (
-      <motion.div
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        exit="exit"
-        transition={{ duration: 0.9, ease: "easeInOut" }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: 50 },
-        }}>
-        {children}
-      </motion.div>
-    );
-  }
   return (
     <Container extraClasses="Content-Container relative py-12 lg:pt-48 overflow-hidden">
       <motion.div className="flex flex-col content-center h-full md:grid md:grid-cols-4">
@@ -54,17 +28,17 @@ export default function Contact() {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="mb-12 text-xl uppercase text-offWhite font-founders  underline-offset-4 ">
+          className="sectionTitle">
           Contact Us
         </motion.p>
-        <motion.div className="md:col-start-2 md:col-span-3 lg:col-span-2">
+        <motion.div className="sectionGrid">
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              <FadeInWhenVisible>
+              <FadeInWhenVisible style="">
                 <motion.h3
                   key={item.id}
-                  className={`${isFirst} hero-font-size font-founders    text-2xl  sm:text-3xl  md:text-5xl `}>
+                  className={`${isFirst} sectionContent`}>
                   {item.text}
                 </motion.h3>
                <div className="flex">

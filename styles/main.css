@@ -51,7 +51,19 @@ p {
   @apply text-lg sm:text-xl  xl:text-2xl;
 }
 
+
+
 @layer components {
+  .sectionTitle {
+    @apply text-xl uppercase text-offWhite font-founders mb-8;
+  }
+  .sectionGrid {
+    @apply md:col-start-2 md:col-span-3 lg:col-span-2;
+  }
+
+  .sectionContent {
+    @apply hero-font-size font-founders   text-2xl  sm:text-3xl  md:text-5xl;
+  }
 
   .fade-in{
   animation: fade
