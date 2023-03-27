@@ -56,17 +56,17 @@ export default function About() {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="text-xl uppercase text-offWhite font-founders mb-8 ">
+          className="sectionTitle">
           About Us
         </motion.p>
-        <motion.div className="md:col-start-2 md:col-span-3 lg:col-span-2">
+        <motion.div className="sectionGrid">
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
               <FadeInWhenVisible>
                 <motion.h3
                   key={item.id}
-                  className={`${isFirst} hero-font-size font-founders    text-2xl  sm:text-3xl  md:text-5xl `}>
+                  className={`${isFirst} sectionContent`}>
                   {item.text}
                 </motion.h3>
               </FadeInWhenVisible>

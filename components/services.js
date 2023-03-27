@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Container from "./container";
-
-import { useAnimation, motion, Variants } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
 import { delayedFade } from "@/helpers/transitions";
 import Accordion from "./accordion";
 import FadeInWhenVisible from "./fadeInWhenVisible";
 export default function Services(){
-  const [expanded, setExpanded] = useState(0);
   const services = [
     {
       id: 1,
@@ -47,15 +44,14 @@ export default function Services(){
     },
   ];
 
-
   return (
-    <Container extraClasses="Content-Container  py-12 lg:py-32">
+    <Container extraClasses="Content-Container py-12 lg:py-32">
       <motion.p
         variants={delayedFade}
         initial="initial"
         animate="enter"
         exit="exit"
-        className="text-xl uppercase text-offWhite font-founders"
+        className="sectionTitle"
       >
         Services
       </motion.p>
