@@ -9,8 +9,7 @@ import { LazyMotion, domAnimation, m } from "framer-motion";
 import { NextSeo } from "next-seo";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Arrow from "./arrow";
-
+import FadeInWhenVisible from "./fadeInWhenVisible";
 export default function TeamText() {
   const content = [
     {
@@ -20,32 +19,7 @@ export default function TeamText() {
     
   ];
 
-  function FadeInWhenVisible({ children }) {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({ margin: "70px" });
-
-    useEffect(() => {
-      if (inView) {
-        controls.start("visible");
-      }
-    }, [controls, inView]);
-
-    return (
-      <motion.div
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        exit="exit"
-        transition={{ duration: 0.9, ease: "easeInOut" }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: 50 },
-        }}>
-        {children}
-      </motion.div>
-    );
-  }
+  
   return (
     <Container extraClasses="Content-Container  pt-8 sm:pt-32 relative overflow-hidden">
       <motion.div className="flex flex-col content-center h-full md:grid md:grid-cols-4">
@@ -61,7 +35,7 @@ export default function TeamText() {
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              <FadeInWhenVisible>
+              <FadeInWhenVisible style="">
                 <motion.h3
                   key={item.id}
                   className={`${isFirst} hero-font-size font-founders    text-2xl  sm:text-3xl  md:text-5xl `}>
