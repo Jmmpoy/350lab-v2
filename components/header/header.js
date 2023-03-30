@@ -14,36 +14,19 @@ import {
 } from "framer-motion";
 import { fade, delayedFade } from "@/helpers/transitions";
 import DateTime from "../dateTime";
+import HeaderLogo from "../headerLogo";
 
 export default function Header() {
-  const [open, setOpen] = useCycle(false, true);
-  const menuItems = [{ route: "About", url: "/about" }];
 
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-  }, [open]);
-
-  const asideVariants = {
-    open: {
-      x: 0,
+  const Logofade = {
+    initial: { opacity: 0 },
+    enter: {
       opacity: 1,
-      transition: {
-        duration: 0.9,
-        ease: [0.79, 0.14, 0.15, 0.86],
-      },
+      transition: { duration: 0.4, delay: .9, ease: [0.83, 0, 0.17, 1] },
     },
-    closed: {
-      x: "-100%",
+    exit: {
       opacity: 0,
-      transition: {
-        duration: 0.9,
-        ease: [0.79, 0.14, 0.15, 0.86],
-        when: "afterChildren",
-      },
+      transition: { duration: 0.4, ease: [0.83, 0, 0.17, 1] },
     },
   };
 
@@ -52,20 +35,20 @@ export default function Header() {
       className=" w-full bg-black fixed flex flex-col justify-center z-20 h-[10vh]"
       data-scroll
       data-scroll-sticky
-      data-scroll-target="#scroll-container">
+      data-scroll-target="#scroll-container"
+    >
       <Container extraClasses="Header-Section ">
         <motion.div className="flex flex-row  h-full justify-between">
           <AnimateSharedLayout>
-            <Link href="/" className="relative">
-              <motion.a
-                variants={fade}
+          <motion.a
+                variants={Logofade}
                 initial="initial"
                 animate="enter"
                 exit="exit"
-                className="mr-4 text-xl  uppercase self-center font-neueBold cursor-pointer">
-                350lab©
+                className="cursor-pointer"
+              >
+                <HeaderLogo />
               </motion.a>
-            </Link>
           </AnimateSharedLayout>
         </motion.div>
       </Container>

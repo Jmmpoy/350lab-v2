@@ -28,16 +28,15 @@ export default function TeamText() {
           initial="initial"
           animate="enter"
           exit="exit"
-          className="mb-12 text-xl uppercase text-offWhite font-founders  underline-offset-4 ">
+          className="sectionTitle">
           Meet Our Team
         </motion.p>
         <motion.div className="md:col-start-2 md:col-span-3 lg:col-span-2">
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              <FadeInWhenVisible style="">
+              <FadeInWhenVisible key={item.id} style="">
                 <motion.h3
-                  key={item.id}
                   className={`${isFirst} hero-font-size font-founders    text-2xl  sm:text-3xl  md:text-5xl `}>
                   {item.text}
                 </motion.h3>
