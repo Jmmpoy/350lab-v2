@@ -15,7 +15,7 @@ export default function Arrow({style, size}) {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          class={size}>
+          className={size}>
           <path
             strokeLinecap="round"
             strokeLinejoin="round"

@@ -2,7 +2,12 @@ import React from "react";
 import { motion } from "framer-motion";
 import Container from "@/components/container";
 import Link from "next/link";
-import { fade, delayedFade, container, heroLineReveal } from "@/helpers/transitions";
+import {
+  fade,
+  delayedFade,
+  container,
+  heroLineReveal,
+} from "@/helpers/transitions";
 import Arrow from "./arrow";
 
 export default function Hero({ message }) {
@@ -16,12 +21,10 @@ export default function Hero({ message }) {
   let heroText =
     "about-font-size text-xl mb-0 font-neueBold uppercase    xsm:text-3xl sm:mb-3   sm:text-5xl md:text-6xl";
   let errorText =
-    "hero-font-size mb-0 font-neueBold text-brown uppercase  xsm:text-3xl sm:mb-3   sm:text-5xl";
-
-  
+    "hero-font-size cursor-pointer mb-0 font-neueBold uppercase  xsm:text-3xl sm:mb-3   sm:text-5xl";
 
   return (
-    <Container extraClasses="Hero-Container relative ">
+    <Container extraClasses="Hero-Container relative">
       <motion.main className={mainStyle}>
         <motion.div>
           {message == null ? (
@@ -36,16 +39,16 @@ export default function Hero({ message }) {
                 return (
                   <motion.div key={index} className="overflow-hidden">
                     <motion.li
-                        custom={item.id}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
-                        variants={heroLineReveal}
-                        key={item.id}
-                        className={` ${isGray} ${heroText}`}
-                      >
-                        {item.text}
-                      </motion.li>
+                      custom={item.id}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      variants={heroLineReveal}
+                      key={item.id}
+                      className={` ${isGray} ${heroText}`}
+                    >
+                      {item.text}
+                    </motion.li>
                   </motion.div>
                 );
               })}
@@ -61,21 +64,25 @@ export default function Hero({ message }) {
                 This page does not exist.
               </motion.p>
               <Link href="/">
-                <motion.a className={errorText}>Clic here.</motion.a>
+                <motion.a className={`${errorText} underline`}>
+                  Clic here.
+                </motion.a>
               </Link>
             </motion.div>
           )}
         </motion.div>
       </motion.main>
-      <motion.div
-        variants={delayedFade}
-        initial="initial"
-        animate="enter"
-        exit="exit"
-        className="hero-arrow absolute bottom-[120px] right-10 rotate-[120deg]"
-      >
-        <Arrow size="w-8 w-8" />
-      </motion.div>
+      {message == null && (
+        <motion.div
+          variants={delayedFade}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className="hero-arrow absolute bottom-[120px] right-10 rotate-[120deg]"
+        >
+          <Arrow size="w-8 w-8" />
+        </motion.div>
+      )}
     </Container>
   );
 }

@@ -15,7 +15,7 @@
 /* Simple defaults */
 
 html {
-  @apply scroll-smooth;
+  @apply scroll-smooth ;
 }
 
 body {
@@ -52,10 +52,9 @@ p {
 }
 
 
-
 @layer components {
   .sectionTitle {
-    @apply text-xl uppercase text-offWhite font-founders mb-8;
+    @apply text-[1rem] uppercase text-offWhite font-founders mb-8 tracking-tight;
   }
   .sectionGrid {
     @apply md:col-start-2 md:col-span-3 lg:col-span-2;
@@ -65,8 +64,8 @@ p {
     @apply hero-font-size font-founders   text-2xl  sm:text-3xl  md:text-5xl;
   }
 
-  .fade-in{
-  animation: fade
+  .fade-in {
+    animation: fade;
   }
 
   /* Hero Headline*/
@@ -191,35 +190,33 @@ p {
   }
 
   arrowUp {
-  width: 2rem;
-  height: 2rem;
-}
+    width: 2rem;
+    height: 2rem;
+  }
 
-.scrollToTop-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  .scrollToTop-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  position: fixed;
-  bottom: 60px;
-  right: 50px;
-  width: 60px;
-  height: 60px;
-  font-size: 16px;
-  line-height: 48px;
+    position: fixed;
+    bottom: 60px;
+    right: 50px;
+    width: 60px;
+    height: 60px;
+    font-size: 16px;
+    line-height: 48px;
 
-  background: #242424;
-  border: none;
-  border-radius: 5%;
-  color: white;
-  cursor: pointer;
-}
+    background: #242424;
+    border: none;
+    border-radius: 5%;
+    color: white;
+    cursor: pointer;
+  }
 
-.scrollToTop-btn:hover {
-  background: #242424;
-;
-}
-
+  .scrollToTop-btn:hover {
+    background: #242424;
+  }
 }
 
 @layer utilities {

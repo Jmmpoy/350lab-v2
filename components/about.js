@@ -63,9 +63,8 @@ export default function About() {
           {content.map((item, index) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              <FadeInWhenVisible>
+              <FadeInWhenVisible key={item.id}>
                 <motion.h3
-                  key={item.id}
                   className={`${isFirst} sectionContent`}>
                   {item.text}
                 </motion.h3>
