@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import SEO from "@/helpers/seo.config";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -10,6 +11,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <DefaultSeo {...SEO} />
+      <SmoothScroll />
       <AnimatePresence>
         <Component {...pageProps} key={router.asPath} />
       </AnimatePresence>

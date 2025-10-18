@@ -12,15 +12,25 @@ function DateTime() {
       clearInterval(timer);
     };
   });
+
+  const hours24 = date.getHours();
+  const hours12 = hours24 % 12 || 12;
+  const minutes = date.getMinutes().toString().padStart(2, "0");
+  const period = hours24 >= 12 ? "pm" : "am";
+
   return (
     <motion.div
       variants={delayedFade}
       initial="initial"
       animate="enter"
       exit="exit"
-      className="DateWrapper self-center">
-      <motion.li className="list-none uppercase text-base font-founders  ">
-        {date.toLocaleTimeString()}
+      className="DateWrapper self-center"
+    >
+      <motion.li className="list-none text-xs font-neueRegular flex items-center">
+        <span>{hours12.toString().padStart(2, "0")}</span>
+        <span className="animate-blink mx-[2px]">:</span>
+        <span>{minutes}</span>
+        <span className="ml-1 uppercase">{period}</span>
       </motion.li>
     </motion.div>
   );

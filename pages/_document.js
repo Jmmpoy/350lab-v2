@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
         </Head>
 
-        <body className="bg-black">
+        <body className="bg-white">
           <Main />
           <NextScript />
         </body>

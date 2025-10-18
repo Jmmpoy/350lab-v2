@@ -1,7 +1,9 @@
-export default function Container({ children, extraClasses }) {
+export default function Container({ children, extraClasses, sectionId }) {
   return (
     <section
-      className={`${extraClasses} px-6 max-w-screen-3xl mx-auto w-full   md:px-8`}>
+      id={sectionId}
+      className={`${extraClasses} px-4  mx-auto w-full   `}
+    >
       {children}
     </section>
   );

@@ -19,50 +19,72 @@ html {
 }
 
 body {
-  @apply font-sans antialiased text-offWhite bg-black;
+  background-color: #fef9f7;
+  @apply font-sans antialiased text-black ;
+}
+
+
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("https: //fabianburghardt.de/swisscolors/img/noise.jpg");
 }
 
 h1 {
-  @apply font-sans mb-3;
+  @apply font-neueLight mb-3 tracking-tight text-black;
 }
 
 h2 {
-  @apply font-sans tracking-tight;
+  @apply font-neueRegular tracking-tight text-black;
 }
 
 h3 {
-  @apply text-4xl font-futuraLight tracking-tight;
+  @apply text-4xl font-neueLight tracking-tight leading-relaxed text-black;
 }
 
 h4 {
-  @apply text-2xl;
+  @apply text-2xl font-neueRegular text-black;
 }
 
 p,
 a {
-  @apply font-futuraLight no-underline;
+  @apply font-neueLight no-underline leading-relaxed;
 }
 
 li {
-  @apply text-xl xl:text-2xl;
+  @apply text-xl xl:text-2xl leading-relaxed;
 }
 
 p {
-  @apply text-lg sm:text-xl  xl:text-2xl;
+  @apply text-lg sm:text-xl xl:text-2xl leading-relaxed;
 }
 
 
 @layer components {
   .sectionTitle {
-    @apply text-[1rem] uppercase text-offWhite font-founders mb-8 tracking-tight;
+    @apply text-[0.75rem] uppercase text-gray font-neueRegular;
   }
-  .sectionGrid {
-    @apply md:col-start-2 md:col-span-3 lg:col-span-2;
-  }
+ 
 
   .sectionContent {
-    @apply hero-font-size font-founders   text-2xl  sm:text-3xl  md:text-5xl;
+    @apply hero-font-size font-neueRegular text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed text-white;
   }
+
+        .sectionSmallContent {
+          @apply hero-font-size font-neueLight text-xl leading-relaxed text-white tracking-wide;
+        }
+
+                     .sectionVerySmallContent {
+                       @apply hero-font-size font-neueLight text-base leading-relaxed text-white tracking-wide  max-w-md;
+                     }
 
   .fade-in {
     animation: fade;
@@ -82,7 +104,7 @@ p {
   .shadow {
     position: absolute;
     inset: 0;
-    background-color: black;
+    background-color: #141414;
     border-radius: 4px;
     z-index: -1;
     height: 10%;
@@ -107,9 +129,9 @@ p {
   }
 
   .line {
-    background: black;
+    background: #e0e0e0;
     width: 50%;
-    height: 0.5px;
+    height: 1px;
     position: absolute;
     top: 50%;
     left: 0;
@@ -207,15 +229,17 @@ p {
     font-size: 16px;
     line-height: 48px;
 
-    background: #242424;
-    border: none;
-    border-radius: 5%;
-    color: white;
+    background: #141414;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    color: #fefefe;
     cursor: pointer;
+    transition: all 0.3s ease;
   }
 
   .scrollToTop-btn:hover {
-    background: #242424;
+    background: #1d1d1d;
+    transform: translateY(-2px);
   }
 }
 
