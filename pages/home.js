@@ -29,9 +29,12 @@ export default function Home() {
           <div id="about">
             <About />
           </div>
-          <Process />
-
-          <Philosophy />
+          <div id="process">
+            <Process />
+          </div>
+          <div id="philosophy">
+            <Philosophy />
+          </div>
           <div id="services">
             <Capabilities />
           </div>

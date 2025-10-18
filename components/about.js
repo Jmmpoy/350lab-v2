@@ -1,10 +1,23 @@
 import Container from "@/components/container";
 import AnimatedText from "@/components/animatedText";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 export default function About() {
   const sectionRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Détecter si on est sur mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Suivre le scroll de la section
   const { scrollYProgress } = useScroll({
@@ -12,11 +25,19 @@ export default function About() {
     offset: ["start end", "end start"],
   });
 
-  // Premier paragraphe : mouvement subtil vers la droite (de -30px à 30px)
-  const content1X = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  // Premier paragraphe : mouvement subtil vers la droite (de -30px à 30px) - désactivé sur mobile
+  const content1X = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isMobile ? [0, 0] : [-30, 30]
+  );
 
-  // Deuxième paragraphe : mouvement subtil vers la gauche (de 30px à -30px)
-  const content2X = useTransform(scrollYProgress, [0, 1], [50, -50]);
+  // Deuxième paragraphe : mouvement subtil vers la gauche (de 30px à -30px) - désactivé sur mobile
+  const content2X = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isMobile ? [0, 0] : [30, -30]
+  );
 
   const aboutContent = [
     {
@@ -26,8 +47,8 @@ export default function About() {
         { text: "design", color: "text-accent-orange", italic: true },
         { text: " and ", color: "text-black" },
         { text: "development", color: "text-accent-orange", italic: true },
-        { text: " to build thoughtful ", color: "text-black" },
-        { text: "digital experiences", color: "text-gray", italic: true },
+        { text: " to build ", color: "text-black" },
+        { text: " experiences", color: "text-gray", italic: true },
         { text: ".", color: "text-black" },
       ],
     },
@@ -120,19 +141,35 @@ export default function About() {
     },
   };
 
+  {
+    /* Section Title avec animation */
+  }
+  {
+    /* <div className="mb-8">
+          <div className="flex items-center">
+            <motion.div variants={statusVariants}>
+              <span className="w-2 h-2 rounded-full bg-accent-red inline-block mr-4"></span>
+            </motion.div>
+            <motion.h3
+              variants={titleVariants}
+              className="sectionTitle text-black mb-0"
+            >
+              About Us
+            </motion.h3>
+          </div>
+          <motion.hr
+            variants={dividerVariants}
+            className="border-t-[1px] border-gray/30 mt-2"
+          />
+        </div> */
+  }
+
   return (
-    <Container
-      sectionId="About"
-      extraClasses="Content-Container relative overflow-auto md:overflow-hidden bg-white pt-16 lg:pt-32 min-h-[calc(100vh-56px)]"
-    >
-      <motion.div
-        ref={sectionRef}
-        className="flex flex-col content-center mb-6 h-full"
-        initial="hidden"
-        animate="visible"
-        variants={containerVariants}
+    <>
+      <Container
+        sectionId="About"
+        extraClasses="Content-Container relative overflow-auto md:overflow-hidden bg-white pt-16 lg:pt-32 min-h-[calc(95vh-56px)] flex flex-col justify-center"
       >
-        {/* Section Title avec animation */}
         <div className="mb-8">
           <div className="flex items-center">
             <motion.div variants={statusVariants}>
@@ -147,48 +184,57 @@ export default function About() {
           </div>
           <motion.hr
             variants={dividerVariants}
-            className="border-t-[1px] border-gray mt-2"
+            className="border-t-[1px] border-gray/30 mt-2"
           />
         </div>
-
-        {/* Content 1 avec animation split text */}
         <motion.div
-          variants={content1Variants}
-          className="w-full lg:w-2/4"
-          style={{ x: content1X }}
+          ref={sectionRef}
+          className="flex flex-col justify-center mb-6 h-full"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
         >
-          {aboutContent.map((item) => {
-            const isFirst = item.id === 1 ? "mt-0" : "mt-8";
-            return (
-              <AnimatedText
-                key={item.id}
-                parts={item.parts}
-                className={`${isFirst} sectionContent lg:max-w-3xl tracking-wide`}
-                delay={0.9}
-              />
-            );
-          })}
-        </motion.div>
+          <div className="flex-1 flex flex-col justify-center">
+            {/* Content 1 avec animation split text */}
+            <motion.div
+              variants={content1Variants}
+              className="w-full lg:w-2/4"
+              style={{ x: content1X }}
+            >
+              {aboutContent.map((item) => {
+                const isFirst = item.id === 1 ? "mt-0" : "mt-8";
+                return (
+                  <AnimatedText
+                    key={item.id}
+                    parts={item.parts}
+                    className={`${isFirst} aboutMainContent lg:max-w-5xl lg:tracking-wide leading-tight lg:leading-none text-center lg:text-left`}
+                    delay={0.9}
+                  />
+                );
+              })}
+            </motion.div>
 
-        {/* Content 2 avec animation split text */}
-        <motion.div
-          variants={content2Variants}
-          className="mt-16 w-full lg:w-1/2 lg:max-w-3xl ml-0 lg:ml-[50%] px-4 lg:px-0"
-          style={{ x: content2X }}
-        >
-          {aboutContent2.map((item, index) => {
-            const isFirst = item.id === 1 ? "mt-0" : "mt-2";
-            return (
-              <AnimatedText
-                key={item.id}
-                parts={item.parts}
-                className={`${isFirst} sectionSmallContent bgbg`}
-                delay={0.9 + index * 0.5}
-              />
-            );
-          })}
+            {/* Content 2 avec animation split text */}
+            <motion.div
+              variants={content2Variants}
+              className="mt-16 w-full lg:w-1/2 lg:max-w-3xl ml-0 lg:ml-[50%]"
+              style={{ x: content2X }}
+            >
+              {aboutContent2.map((item, index) => {
+                const isFirst = item.id === 1 ? "mt-0" : "mt-2";
+                return (
+                  <AnimatedText
+                    key={item.id}
+                    parts={item.parts}
+                    className={`${isFirst} sectionSmallContent text-center lg:text-left`}
+                    delay={0.9 + index * 0.5}
+                  />
+                );
+              })}
+            </motion.div>
+          </div>
         </motion.div>
-      </motion.div>
-    </Container>
+      </Container>
+    </>
   );
 }

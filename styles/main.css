@@ -86,6 +86,12 @@ p {
                        @apply hero-font-size font-neueLight text-base leading-relaxed text-white tracking-wide  max-w-md;
                      }
 
+  /* About Component Specific */
+  .aboutMainContent {
+    @apply hero-font-size font-neueRegular text-4xl sm:text-4xl md:text-5xl lg:text-[55px] leading-relaxed text-white;
+    font-size: clamp(2rem, 3vw + 1rem, 4.5rem);
+  }
+
   .fade-in {
     animation: fade;
   }

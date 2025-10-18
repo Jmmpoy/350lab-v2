@@ -32,7 +32,7 @@ export default function ScrollToTop() {
       {scrollPosition > 100 && (
         <motion.button
           onClick={goToTop}
-          className="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white border-[.5px] border-black/50 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-black group"
+          className="fixed bottom-10 right-10 w-10 h-10 rounded-full bg-white border-[.5px] border-black/40 flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-gray/65 group"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1, transition: { duration: 0.6 } }}
           exit={{ y: 100, opacity: 0, transition: { duration: 0.6 } }}
