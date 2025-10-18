@@ -23,7 +23,7 @@ export default function ScrollFadeOverlay() {
       animate={{ opacity: 0, filter: "blur(0px)" }}
       transition={{ duration: 1, ease: easeInOut, delay: 1.5 }}
       style={{ opacity }}
-      className="fixed inset-0 pointer-events-none z-50 flex items-end justify-center"
+      className="fixed inset-0 pointer-events-none z-50 items-end justify-center hidden md:flex"
     >
       {/* Scroll indicator */}
       <div className="flex flex-col items-center">
