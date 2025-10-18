@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { fade } from "@/helpers/transitions";
 export default function Logo({ width, src }) {

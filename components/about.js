@@ -1,74 +1,190 @@
-import { useRef, useEffect } from "react";
-import Layout from "@/components/layout";
-import Header from "@/components/header/header";
-import Footer from "@/components/footer";
 import Container from "@/components/container";
-import FancyLink from "@/components/fancyLink";
-import { fade, delayedFade } from "@/helpers/transitions";
-import { LazyMotion, domAnimation, m } from "framer-motion";
-import { NextSeo } from "next-seo";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import AnimatedText from "@/components/animatedText";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function About() {
-  const content = [
+  const sectionRef = useRef(null);
+
+  // Suivre le scroll de la section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Premier paragraphe : mouvement subtil vers la droite (de -30px à 30px)
+  const content1X = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+
+  // Deuxième paragraphe : mouvement subtil vers la gauche (de 30px à -30px)
+  const content2X = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  const aboutContent = [
     {
       id: 1,
-      text: "We're a creative studio with development and design expertise. We partner with brands by developing solutions through strategy and design.",
-    },
-    {
-      id: 2,
-      text: "We believe a great presentation evokes interest and drives business results far better than any saying can.",
+      parts: [
+        { text: "We're a creative studio combining ", color: "text-black" },
+        { text: "design", color: "text-accent-orange", italic: true },
+        { text: " and ", color: "text-black" },
+        { text: "development", color: "text-accent-orange", italic: true },
+        { text: " to build thoughtful ", color: "text-black" },
+        { text: "digital experiences", color: "text-gray", italic: true },
+        { text: ".", color: "text-black" },
+      ],
     },
   ];
 
-  function FadeInWhenVisible({ children }) {
-    const controls = useAnimation();
-    const [ref, inView] = useInView({ margin: "70px" });
+  const aboutContent2 = [
+    {
+      id: 1,
+      parts: [
+        { text: "Founded by a team of ", color: "text-black" },
+        { text: "designers", color: "text-gray", italic: true },
+        { text: ", ", color: "text-black" },
+        { text: "developers", color: "text-gray", italic: true },
+        { text: ", and ", color: "text-black" },
+        { text: "creatives", color: "text-gray", italic: true },
+        { text: ", the Studio combines ", color: "text-black" },
+        { text: "design thinking", color: "text-gray", italic: true },
+        { text: " and ", color: "text-black" },
+        { text: "technical expertise", color: "text-gray", italic: true },
+        {
+          text: " to build impactful digital experiences. Each founder contributes a distinct perspective — blending ",
+          color: "text-black",
+        },
+        { text: "aesthetics", color: "text-gray", italic: true },
+        { text: ", ", color: "text-black" },
+        { text: "strategy", color: "text-gray", italic: true },
+        { text: ", and ", color: "text-black" },
+        { text: "technology", color: "text-gray", italic: true },
+        {
+          text: " into cohesive, purposeful design. Together, we craft ",
+          color: "text-black",
+        },
+        { text: "experiences", color: "text-gray", italic: true },
+        { text: " that move, engage, and perform.", color: "text-black" },
+      ],
+    },
+  ];
 
-    useEffect(() => {
-      if (inView) {
-        controls.start("visible");
-      }
-    }, [controls, inView]);
+  // Variants pour orchestrer l'animation
+  const containerVariants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
 
-    return (
-      <motion.div
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        exit="exit"
-        transition={{ duration: 0.9, ease: "easeInOut" }}
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: { opacity: 1, y: 0 },
-          exit: { opacity: 0, y: 50 },
-        }}>
-        {children}
-      </motion.div>
-    );
-  }
+  const dividerVariants = {
+    hidden: { width: "0%" },
+    visible: {
+      width: "100%",
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const statusVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, delay: 0.5 },
+    },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, delay: 0.5 },
+    },
+  };
+
+  const content1Variants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0 },
+    },
+  };
+
+  const content2Variants = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0 },
+    },
+  };
+
   return (
-    <Container extraClasses="Content-Container relative  overflow-auto  md:overflow-hidden ">
-      <motion.div className="flex flex-col content-center py-16 h-full md:grid  md:grid-cols-4">
-        <motion.p
-          variants={delayedFade}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          className="sectionTitle">
-          About Us
-        </motion.p>
-        <motion.div className="sectionGrid">
-          {content.map((item, index) => {
+    <Container
+      sectionId="About"
+      extraClasses="Content-Container relative overflow-auto md:overflow-hidden bg-white pt-16 lg:pt-32 min-h-[calc(100vh-56px)]"
+    >
+      <motion.div
+        ref={sectionRef}
+        className="flex flex-col content-center mb-6 h-full"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        {/* Section Title avec animation */}
+        <div className="mb-8">
+          <div className="flex items-center">
+            <motion.div variants={statusVariants}>
+              <span className="w-2 h-2 rounded-full bg-accent-red inline-block mr-4"></span>
+            </motion.div>
+            <motion.h3
+              variants={titleVariants}
+              className="sectionTitle text-black mb-0"
+            >
+              About Us
+            </motion.h3>
+          </div>
+          <motion.hr
+            variants={dividerVariants}
+            className="border-t-[1px] border-gray mt-2"
+          />
+        </div>
+
+        {/* Content 1 avec animation split text */}
+        <motion.div
+          variants={content1Variants}
+          className="w-full lg:w-2/4"
+          style={{ x: content1X }}
+        >
+          {aboutContent.map((item) => {
             const isFirst = item.id === 1 ? "mt-0" : "mt-8";
             return (
-              <FadeInWhenVisible key={item.id}>
-                <motion.h3
-                  className={`${isFirst} sectionContent`}>
-                  {item.text}
-                </motion.h3>
-              </FadeInWhenVisible>
+              <AnimatedText
+                key={item.id}
+                parts={item.parts}
+                className={`${isFirst} sectionContent lg:max-w-3xl tracking-wide`}
+                delay={0.9}
+              />
+            );
+          })}
+        </motion.div>
+
+        {/* Content 2 avec animation split text */}
+        <motion.div
+          variants={content2Variants}
+          className="mt-16 w-full lg:w-1/2 lg:max-w-3xl ml-0 lg:ml-[50%] px-4 lg:px-0"
+          style={{ x: content2X }}
+        >
+          {aboutContent2.map((item, index) => {
+            const isFirst = item.id === 1 ? "mt-0" : "mt-2";
+            return (
+              <AnimatedText
+                key={item.id}
+                parts={item.parts}
+                className={`${isFirst} sectionSmallContent bgbg`}
+                delay={0.9 + index * 0.5}
+              />
             );
           })}
         </motion.div>

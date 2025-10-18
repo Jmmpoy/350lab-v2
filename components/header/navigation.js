@@ -1,41 +1,50 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import Logo from "@/components/header/logo";
 import { fade } from "@/helpers/transitions";
+
 export default function Navigation({ items, activeIndex, setActiveIndex }) {
   const [AnimationIsDone, SetAnimationIsDone] = useState(false);
 
+  const handleClick = (e, url, index) => {
+    e.preventDefault();
+    setActiveIndex(index);
+
+    const targetId = url.replace("#", "");
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
-    <motion.nav className="self-baseline flex flex-end xsm:basis-1/2  md:flex items-center w-full  md:w-auto">
-      <div className="flex">
-        <motion.ul
-          variants={fade}
-          initial="initial"
-          animate="enter"
-          exit="exit"
-          className=" navItems flex flex-end  space-x-4 self-center">
-          {items.map(({ route, url }, index) => {
-            const isActive = index === activeIndex;
-            const isServices = route.url === "services";
-            return (
-              <motion.li key={index} class=" uppercase ">
-                {isServices ? (
-                  <a className="text-sm font-founders">
-                    <span>{route}</span>
-                  </a>
-                ) : (
-                  <Link href={url} class="relative">
-                    <a className="text-sm font-founders">
-                      <span>{route}</span>
-                    </a>
-                  </Link>
-                )}
-              </motion.li>
-            );
-          })}
-        </motion.ul>
-      </div>
+    <motion.nav className="flex items-center">
+      <motion.ul
+        variants={fade}
+        initial="initial"
+        animate="enter"
+        exit="exit"
+        className="navItems flex space-x-4 md:space-x-6"
+      >
+        {items.map(({ route, url }, index) => {
+          const isActive = index === activeIndex;
+          return (
+            <motion.li key={index} className="uppercase">
+              <a
+                href={url}
+                onClick={(e) => handleClick(e, url, index)}
+                className="relative group text-xs font-neueRegular tracking-tighter text-gray hover:text-black cursor-pointer"
+              >
+                <span>{route}</span>
+                <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-black transition-all duration-300 ease-out group-hover:w-full"></span>
+              </a>
+            </motion.li>
+          );
+        })}
+      </motion.ul>
     </motion.nav>
   );
 }

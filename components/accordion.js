@@ -14,14 +14,14 @@ function Accordion({ i, id, name, services }) {
   return (
     <>
       <div className="flex">
-      <motion.h3
-        initial={false}
-        onClick={toggleList}
-        className={`w-[90%]  text-4xl  sm:text-4xl md:text-6xl lg:text-8xl font-neueBold tracking-tight mb-0 uppercase  `}
-      >
-        {name}
-      </motion.h3>
-      <PlusMinusButton toggleList={toggleList} id={id}/>
+        <motion.h3
+          initial={false}
+          onClick={toggleList}
+          className={`w-[90%]  text-4xl  sm:text-4xl md:text-6xl lg:text-8xl font-neueBold tracking-tight mb-0 uppercase  `}
+        >
+          {name}
+        </motion.h3>
+        <PlusMinusButton toggleList={toggleList} id={id} />
       </div>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -39,7 +39,14 @@ function Accordion({ i, id, name, services }) {
             <motion.ul className="mt-16">
               {services.map((service) => {
                 const isFirst = service.id === 1 ? "mt-0" : "mt-4";
-                return <motion.li className={`${isFirst} text-base sm:text-xl md:text2-xl  text-offWhite font-founders`} key={service.id}>{service.name}</motion.li>;
+                return (
+                  <motion.li
+                    className={`${isFirst} text-base sm:text-xl md:text2-xl  text-offWhite font-founders`}
+                    key={service.id}
+                  >
+                    {service.name}
+                  </motion.li>
+                );
               })}
             </motion.ul>
           </motion.section>
