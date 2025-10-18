@@ -141,42 +141,26 @@ export default function About() {
     },
   };
 
-  {
-    /* Section Title avec animation */
-  }
-  {
-    /* <div className="mb-8">
-          <div className="flex items-center">
-            <motion.div variants={statusVariants}>
-              <span className="w-2 h-2 rounded-full bg-accent-red inline-block mr-4"></span>
-            </motion.div>
-            <motion.h3
-              variants={titleVariants}
-              className="sectionTitle text-black mb-0"
-            >
-              About Us
-            </motion.h3>
-          </div>
-          <motion.hr
-            variants={dividerVariants}
-            className="border-t-[1px] border-gray/30 mt-2"
-          />
-        </div> */
-  }
-
   return (
     <>
       <Container
         sectionId="About"
         extraClasses="Content-Container relative overflow-auto md:overflow-hidden bg-white pt-16 lg:pt-32 min-h-[calc(95vh-56px)] flex flex-col justify-center"
       >
+        {/* Section Title avec animation */}
         <div className="mb-8">
           <div className="flex items-center">
-            <motion.div variants={statusVariants}>
+            <motion.div
+              variants={statusVariants}
+              initial="hidden"
+              animate="visible"
+            >
               <span className="w-2 h-2 rounded-full bg-accent-red inline-block mr-4"></span>
             </motion.div>
             <motion.h3
               variants={titleVariants}
+              initial="hidden"
+              animate="visible"
               className="sectionTitle text-black mb-0"
             >
               About Us
@@ -184,6 +168,8 @@ export default function About() {
           </div>
           <motion.hr
             variants={dividerVariants}
+            initial="hidden"
+            animate="visible"
             className="border-t-[1px] border-gray/30 mt-2"
           />
         </div>
