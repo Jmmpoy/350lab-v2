@@ -17,6 +17,9 @@
     "preact"
   ],
   "homepage": "https://www.350lab.com/",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
